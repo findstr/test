@@ -9,6 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: install dependencies
+      run:  sudo apt-get install redis-server
+            echo "ping" | redis-cli
     - name: make
       run: gcc -o a a.c
     - name: make check
